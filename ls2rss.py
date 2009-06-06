@@ -20,7 +20,7 @@ import ConfigParser
 from stat import *
 
 '''Places where config file can exist'''
-configfiles = ("./ls2rss.cfg", os.path.expanduser("~")+"/.ls2rss.cfg", "/etc/ls2rss.cfg" )
+configfiles =  [ "./ls2rss.cfg", os.path.expanduser("~")+"/.ls2rss.cfg", "/etc/ls2rss.cfg" ]
 
 
 '''parameters to read from config file'''
@@ -38,7 +38,7 @@ def help():
 
 '''Append fisrt argument to the possible config files'''
 if (len(sys.argv) > 1):
-  configfiles.push(argv[1])
+  configfiles.insert(0,sys.argv[1])
 '''Verifies which config file exists'''
 for f in configfiles:
   if (os.path.exists(f)):
